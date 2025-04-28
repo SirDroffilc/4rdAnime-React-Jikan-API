@@ -1,0 +1,93 @@
+.search-result-item-container {
+    border: none;
+    margin: 10px;
+    padding: 0;
+
+    width: 207.8px;
+    height: auto;
+
+}
+
+.search-result-item-upper {
+    position: relative;
+}
+
+.item-wallpaper {
+    width: 207.8px;
+    height: 290.9px;
+    object-fit: cover;
+}
+
+.overlay-info {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; /* Initial right alignment for the group */
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    gap: 8px; /* Space between episodes and status */
+
+
+}
+
+.item-episodes, .item-status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 8px;
+    border-radius: 15px;
+    z-index: 1;
+}
+
+.item-episodes {
+    background-color: #0A7075;
+}
+
+.play-icon {
+    width: 15px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.item-episodes p,
+.item-status p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.item-status {
+    background-color: #0c969c;
+}
+
+.item-status p {
+    font-size: 0.9rem;
+}
+
+.search-result-item-info {
+    padding: 10px;
+    height: 62.9px;
+}
+
+.info-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.info-details{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1;
+}
+
+.info-type {
+    text-align: left;
+}
+
+.info-score {
+    text-align: left;
+}
