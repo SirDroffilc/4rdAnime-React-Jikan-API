@@ -3,9 +3,8 @@
     margin: 10px;
     padding: 0;
 
-    width: 207.8px;
+    width: 200px;
     height: auto;
-
 }
 
 .search-result-item-upper {
@@ -13,9 +12,17 @@
 }
 
 .item-wallpaper {
-    width: 207.8px;
+    width: 200px;
     height: 290.9px;
     object-fit: cover;
+    cursor: pointer;
+
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.item-wallpaper:hover {
+    opacity: 0.3;
 }
 
 .overlay-info {
@@ -24,9 +31,7 @@
     right: 10px; /* Initial right alignment for the group */
     display: flex;
     align-items: center; /* Align items vertically in the center */
-    gap: 8px; /* Space between episodes and status */
-
-
+    gap: 2px; /* Space between episodes and status */
 }
 
 .item-episodes, .item-status {
@@ -34,7 +39,7 @@
     justify-content: center;
     align-items: center;
     width: fit-content;
-    padding: 8px;
+    padding: 5px;
     border-radius: 15px;
     z-index: 1;
 }
@@ -44,14 +49,14 @@
 }
 
 .play-icon {
-    width: 15px;
+    width: 13px;
     height: auto;
     margin-right: 5px;
 }
 
 .item-episodes p,
 .item-status p {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     margin: 0;
 }
 
@@ -59,13 +64,10 @@
     background-color: #0c969c;
 }
 
-.item-status p {
-    font-size: 0.9rem;
-}
-
 .search-result-item-info {
     padding: 10px;
     height: 62.9px;
+    
 }
 
 .info-title {
@@ -81,7 +83,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    line-height: 1;
+    line-height: 1.2;
+    color: rgb(163, 163, 163);
 }
 
 .info-type {

@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 60px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: #024340;
+
+    z-index: 100;
+}
+
+.name-section {
+    padding: 10px 40px;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+
+    flex: 1;
+}
+
+
+.nav-section {
+    flex: 0.5;
+}
+
+.nav-section nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.nav-link {
+    color: #031716;
+    text-decoration: none;
+    transition: color 0.1s ease;
+}
+
+.nav-link:hover {
+    color: #6BA3BE;
+}

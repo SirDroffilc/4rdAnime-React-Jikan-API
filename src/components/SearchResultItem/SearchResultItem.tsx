@@ -1,5 +1,5 @@
 import "./SearchResultItem.css"
-import playIcon from "../assets/play-icon.png"
+import playIcon from "../../assets/play-icon.png"
 
 interface Anime {
     mal_id: number;
@@ -11,11 +11,6 @@ interface Anime {
     status?: string | null;
     year?: number | null;
     images: {
-        jpg: {
-            image_url: string;
-            small_image_url: string;
-            large_image_url: string;
-        };
         webp: {
             image_url: string;
             small_image_url: string;
@@ -23,6 +18,7 @@ interface Anime {
         };
     };
 }
+
 function SearchResultItem({ anime }: { anime: Anime}) {
     return(
         <>
