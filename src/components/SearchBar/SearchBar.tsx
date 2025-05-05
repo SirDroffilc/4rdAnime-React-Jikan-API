@@ -4,6 +4,7 @@ import "./SearchBar.css"
 
 interface SearchBarProps {
     onSearch: (query: string) => void
+    className?: string
 }
 
 function SearchBar({ onSearch } : SearchBarProps) {

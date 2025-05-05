@@ -54,6 +54,7 @@ function SearchAnime() {
 
     return (
         <>
+            <h1 className="website-name">4rdAnime</h1>
             <SearchBar onSearch={handleSearch}/>
             <div className="search-results-container">
                 <ul className={`search-results-items-grid ${searchResults.length <= 7 ? "few-results-flex" : ""}`}>

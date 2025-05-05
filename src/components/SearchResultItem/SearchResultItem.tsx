@@ -1,6 +1,13 @@
 import "./SearchResultItem.css"
 import playIcon from "../../assets/play-icon.png"
 
+interface Genre {
+    mal_id: number;
+    name: string;
+    type: string;
+    url: string
+}
+
 interface Anime {
     mal_id: number;
     url: string;
@@ -10,6 +17,7 @@ interface Anime {
     score?: number | null;
     status?: string | null;
     year?: number | null;
+    genres?: Genre[];
     images: {
         webp: {
             image_url: string;

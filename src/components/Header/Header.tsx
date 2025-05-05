@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import SearchBar from "../SearchBar/SearchBar"
 import "./Header.css"
 
 function Header() {
@@ -9,7 +10,7 @@ function Header() {
             </div>
 
             <div className="search-section">
-                
+                <SearchBar onSearch={(query: string) => {console.log(query)}} className="header-search-bar"/>
             </div>
 
             <div className="nav-section">
