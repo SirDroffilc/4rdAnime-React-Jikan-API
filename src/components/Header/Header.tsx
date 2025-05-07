@@ -10,7 +10,7 @@ function Header() {
             </div>
 
             <div className="search-section">
-                <SearchBar onSearch={(query: string) => {console.log(query)}} className="header-search-bar"/>
+                <SearchBar onSearch={(query: string) => {console.log(query)}} filter="anime"/>
             </div>
 
             <div className="nav-section">

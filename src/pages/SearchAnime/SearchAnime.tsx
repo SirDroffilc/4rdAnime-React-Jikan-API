@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import SearchBar from "../../components/SearchBar/SearchBar.tsx"
-import SearchResultItem from "../../components/SearchResultItem/SearchResultItem.tsx"
+import SearchAnimeResult from "../../components/SearchAnimeResult/SearchAnimeResult.tsx"
 import "./SearchAnime.css"
 
 function SearchAnime() {
@@ -55,11 +55,11 @@ function SearchAnime() {
     return (
         <>
             <h1 className="website-name">4rdAnime</h1>
-            <SearchBar onSearch={handleSearch}/>
+            <SearchBar onSearch={handleSearch} filter="anime"/>
             <div className="search-results-container">
                 <ul className={`search-results-items-grid ${searchResults.length <= 7 ? "few-results-flex" : ""}`}>
                     {searchResults.map((anime, i) => (
-                        <li key={i}><SearchResultItem anime={anime} /></li>
+                        <li key={i}><SearchAnimeResult anime={anime} /></li>
                     ))}
                 </ul>
 

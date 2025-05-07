@@ -5,9 +5,10 @@ import "./SearchBar.css"
 interface SearchBarProps {
     onSearch: (query: string) => void
     className?: string
+    filter: string
 }
 
-function SearchBar({ onSearch } : SearchBarProps) {
+function SearchBar({ onSearch, filter} : SearchBarProps) {
     const [query, setQuery] = useState<string>("")
 
     function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
@@ -32,7 +33,7 @@ function SearchBar({ onSearch } : SearchBarProps) {
                     className="search-input"
                     type="text" 
                     value={query}
-                    placeholder="Search for anime... "
+                    placeholder={`Search for ${filter}... `}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown}
                 />

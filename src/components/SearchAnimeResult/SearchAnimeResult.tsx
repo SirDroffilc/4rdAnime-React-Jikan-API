@@ -1,4 +1,4 @@
-import "./SearchResultItem.css"
+import "./SearchAnimeResult.css"
 import playIcon from "../../assets/play-icon.png"
 
 interface Genre {
@@ -27,7 +27,7 @@ interface Anime {
     };
 }
 
-function SearchResultItem({ anime }: { anime: Anime}) {
+function SearchAnimeResult({ anime }: { anime: Anime}) {
     return(
         <>
             <div className="search-result-item-container">
@@ -56,4 +56,4 @@ function SearchResultItem({ anime }: { anime: Anime}) {
     )
 }
 
-export default SearchResultItem
+export default SearchAnimeResult
