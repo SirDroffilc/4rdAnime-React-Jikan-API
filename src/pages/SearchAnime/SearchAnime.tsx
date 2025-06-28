@@ -20,7 +20,7 @@ function SearchAnime() {
         if (pageNumber < pageCount) {
             return (
                 <button onClick={handleNextButtonClick} disabled={isLoading}>
-                    Next
+                    Next Page
                 </button>
             )
         } 
