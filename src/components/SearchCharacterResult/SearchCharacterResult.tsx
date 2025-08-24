@@ -21,7 +21,7 @@ function SearchCharacterResult({ character }: { character: Character}) {
                     <img className="item-wallpaper"src={character.images.webp.image_url} alt={character.name} />
                     <div className="overlay-info">
                         <div className="item-favorites">
-                            <p>{character.favorites} 💚</p>
+                            <p>{character.favorites} ❤️</p>
                         </div>
                     </div>
                 </div>
