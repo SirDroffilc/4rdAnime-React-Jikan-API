@@ -1,0 +1,56 @@
+.recent-and-popular-container {
+    display: flex;
+    margin-top: 5rem;
+    gap: 2rem;
+}
+
+.recent-animes-container {
+    flex: 4;
+}
+
+.home-popular-animes-container {
+    flex: 1;
+}
+
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+@media (max-width: 500px) {
+    .recent-animes-grid {
+        justify-content: center;
+    }
+
+    .recent-animes-grid li {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+.recent-animes-container {
+    padding: 0;
+}
+
+.recent-animes-grid {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 23px;
+    justify-content: flex-start;
+}
+
+.recent-animes-grid li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+}
+
+.home-popular-animes-list li {
+    margin: 0 0 1rem 0;
+}

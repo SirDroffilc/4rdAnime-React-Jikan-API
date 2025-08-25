@@ -1,0 +1,56 @@
+.home-popular-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    width: 22rem;
+    height: 7rem;
+    padding: 15px;
+
+    background-color: #024340;
+    border: none;
+
+    /* prevent stretching */
+    box-sizing: border-box;
+}
+
+.home-popular-ranking {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #031716;
+    flex-shrink: 0; /* prevents shrinking */
+    width: 4.5rem;
+    text-align: center;
+}
+
+.home-popular-img {
+    width: 20%;
+    height: 90%;
+    object-fit: cover;
+    object-position: center;
+    flex-shrink: 0; /* keep consistent image size */
+}
+
+.home-popular-info {
+    flex: 1; /* take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* center vertically */
+    overflow: hidden; /* prevent overflow from long titles */
+}
+
+.home-popular-info .title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+
+    white-space: nowrap;       /* force single line */
+    overflow: hidden;          /* hide overflow text */
+    text-overflow: ellipsis;   /* add "..." when too long */
+}
+
+.home-popular-info .episode {
+    font-size: 0.9rem;
+    color: rgb(180, 180, 180);
+    margin: 0;
+}
