@@ -9,10 +9,6 @@ function Header() {
                 4rdAnime
             </div>
 
-            <div className="search-section">
-                <SearchBar onSearch={(query: string) => {console.log(query)}} filter="anime"/>
-            </div>
-
             <div className="nav-section">
                 <nav>
                     <ul>

@@ -1,7 +1,7 @@
 import "./Home.css";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-import Carousel from "../../components/Carousel/Carousel"
+import Carousel from "../../components/Carousel/Carousel";
 import SearchAnimeResult from "../../components/SearchAnimeResult/SearchAnimeResult";
 import HomePopularAnime from "../../components/HomePopularAnime/HomePopularAnime";
 
@@ -16,11 +16,11 @@ import assassination from "../../assets/assassination-classroom.jpg";
 import oregairu from "../../assets/oregairu.jpg";
 import magi from "../../assets/magi.jpg";
 
-const animes = [
+const baseCarousel = [
     { src: onePiece, alt: "One Piece", mal_id: 21, synopsis: "" },
     { src: attackOnTitan, alt: "Attack On Titan", mal_id: 16498, synopsis: "" },
-    { src: steinsGate, alt: "Steins Gate", mal_id: 9253, synopsis: "" },
-    { src: haikyuu, alt: "Haikyuu", mal_id: 20583, synopsis: "" },
+    { src: steinsGate, alt: "Steins;Gate", mal_id: 9253, synopsis: "" },
+    { src: haikyuu, alt: "Haikyuuu!", mal_id: 20583, synopsis: "" },
     { src: hunterxhunter, alt: "Hunter x Hunter", mal_id: 11061, synopsis: "" },
     { src: codeGeass, alt: "Code Geass", mal_id: 1575, synopsis: "" },
     { src: blackClover, alt: "Black Clover", mal_id: 34572, synopsis: "" },
@@ -34,98 +34,115 @@ const animes = [
     { src: magi, alt: "Magi", mal_id: 14513, synopsis: "" },
 ];
 
+async function fetchRecentAnimes() {
+    const url: string = "https://api.jikan.moe/v4/seasons/now?page=1";
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("fetchRecentAnimes() error");
+    return response.json();
+}
+
+async function fetchPopularAnimes() {
+    const url: string =
+        "https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=15";
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("fetchPopularAnimes() error");
+    return response.json();
+}
+
+async function fetchCarouselAnimes() {
+    const updatedList: any[] = [];
+    for (const anime of baseCarousel) {
+        try {
+            const url = `https://api.jikan.moe/v4/anime/${anime.mal_id}`;
+            const response = await fetch(url);
+            if (!response.ok)
+                throw new Error(`fetchCarouselAnimes() ${anime.alt} error`);
+            const data = await response.json();
+            updatedList.push({
+                ...anime,
+                synopsis: data.data?.synopsis || "No synopsis found",
+            });
+
+            await new Promise((resolve) => setTimeout(resolve, 334));
+        } catch {
+            updatedList.push({ ...anime, synopsis: "Error fetching synopsis" });
+        }
+    }
+    return updatedList;
+}
 
 function Home() {
+    const {
+        data: recentData,
+        isLoading: recentLoading,
+        error: recentError,
+    } = useQuery({
+        queryKey: ["recentAnimes"],
+        queryFn: fetchRecentAnimes,
+        staleTime: 1000 * 60 * 5, // cache 5 min
+    });
 
-    const [carouselAnimes, setCarouselAnimes] = useState<any[]>(animes)
-    const [recentAnimes, setRecentAnimes] = useState<any[]>([])
-    const [popularAnimes, setPopularAnimes] = useState<any[]>([])
+    const {
+        data: popularData,
+        isLoading: popularLoading,
+        error: popularError,
+    } = useQuery({
+        queryKey: ["popularAnimes"],
+        queryFn: fetchPopularAnimes,
+        staleTime: 1000 * 60 * 5,
+    });
 
-    async function getRecentAnimes() {
-        try {
-            const url: string = "https://api.jikan.moe/v4/seasons/now"
-            const response = await fetch(url)
-            const data = await response.json()
-            setRecentAnimes(data.data)
-        } catch (error) {
-            console.error("Error fetching data: ", error)
-        }
-    }
+    const {
+        data: carouselData,
+        isLoading: carouselLoading,
+        error: carouselError,
+    } = useQuery({
+        queryKey: ["carouselAnimes"],
+        queryFn: fetchCarouselAnimes,
+        staleTime: 1000 * 60 * 5,
+    });
 
-    async function getPopularAnimes() {
-        try {
-            const url: string = "https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=15"
-            const response = await fetch(url)
-            const data = await response.json()
-            setPopularAnimes(data.data)
-        } catch (error) {
-            console.error("Error fetching data: ", error)
-        }
-    }
-
-    async function getAllSynopsis() {
-        try {
-            const updatedAnimeList = [];
-
-            for (const anime of carouselAnimes) {
-                try {
-                    const url = `https://api.jikan.moe/v4/anime/${anime.mal_id}`;
-                    const response = await fetch(url);
-                    const data = await response.json();
-
-                    updatedAnimeList.push({
-                        ...anime,
-                        synopsis: data.data?.synopsis || "No synopsis found",
-                    });
-
-                    setCarouselAnimes(updatedAnimeList);
-
-                    await new Promise((res) => setTimeout(res, 334));
-                    console.log("synopsis done")
-
-                } catch (error) {
-                    console.error("Error fetching data: ", error);
-                    updatedAnimeList.push({
-                        ...anime,
-                        synopsis: "Error fetching synopsis",
-                    });
-                }
-            }
-
-        } catch (error) {
-            console.error("Error in getAllSynopsis: ", error);
-        }
-    }
-
-    useEffect(() => {
-        async function fetchData() {
-            await getAllSynopsis()
-            await getRecentAnimes()
-            await new Promise(res => setTimeout(res, 400))
-            await getPopularAnimes()
-        }
-        fetchData()
-    }, [])
+    if (recentError || popularError || carouselError)
+        return <p>Error fetching data</p>;
 
     return (
         <>
-            <Carousel animes={carouselAnimes}/>
+            <Carousel
+                animes={carouselData ?? baseCarousel}
+                loading={carouselLoading}
+            />
 
             <div className="recent-and-popular-container">
                 <div className="recent-animes-container">
+                    <p className="text-category" id="recent-category">
+                        Recently Updated
+                    </p>
                     <ul className="recent-animes-grid">
-                        {recentAnimes?.map((anime, i) => (
-                            <li key={i}><SearchAnimeResult anime={anime} /></li>
+                        {recentData?.data?.map((anime: any, i: number) => (
+                            <li key={i}>
+                                <SearchAnimeResult anime={anime} />
+                            </li>
                         ))}
                     </ul>
+                    {recentLoading && (
+                        <p className="loading-text">Loading Recent Anime...</p>
+                    )}
                 </div>
-                
+
                 <div className="home-popular-animes-container">
+                    <p className="text-category">Most Popular</p>
                     <ul className="home-popular-animes-list">
-                        {popularAnimes?.map((anime, i) => (
-                            <li key={i}><HomePopularAnime anime={anime}></HomePopularAnime></li>
+                        {popularData?.data?.map((anime: any, i: number) => (
+                            <li key={i}>
+                                <HomePopularAnime
+                                    anime={anime}
+                                ></HomePopularAnime>
+                            </li>
                         ))}
                     </ul>
+                    {popularLoading && (
+                        <p className="loading-text">Loading Most Popular...</p>
+                    )}
                 </div>
             </div>
         </>

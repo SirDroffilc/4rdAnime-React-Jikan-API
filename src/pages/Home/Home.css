@@ -1,3 +1,10 @@
+.text-category {
+    font-size: 1.5rem;
+    color: #0A7075;
+    margin-left: 0.5rem;
+    font-weight: bold;
+}
+
 .recent-and-popular-container {
     display: flex;
     margin-top: 5rem;
@@ -51,6 +58,14 @@ ul {
     width: 200px;
 }
 
+#recent-category {
+    margin-bottom: 8px;
+}
+
 .home-popular-animes-list li {
     margin: 0 0 1rem 0;
+}
+
+.loading-text {
+    color: rgb(150, 150, 150);
 }

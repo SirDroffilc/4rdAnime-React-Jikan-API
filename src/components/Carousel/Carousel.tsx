@@ -1,5 +1,5 @@
 import "./Carousel.css"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
     interface Anime {
         mal_id: number;
@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
         synopsis?: string | null;
     }
 
-function Carousel({ animes }: { animes: Anime[] }) {
+function Carousel({ animes, loading }: { animes: Anime[], loading: boolean }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     function nextSlide() {
@@ -35,6 +35,7 @@ function Carousel({ animes }: { animes: Anime[] }) {
                             <div className="info">
                                 <div className="text">
                                     <h2>{anime.alt}</h2>
+                                    {loading && <p>Loading synopsis...</p>}
                                     <p>{anime.synopsis}</p>
                                 </div>
                                 <div className="ranking-number">

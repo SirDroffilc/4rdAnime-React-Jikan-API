@@ -30,6 +30,7 @@ function SearchBar({ onSearch, filter} : SearchBarProps) {
         <div className="search-container">
             <div className="input-wrapper">
                 <input 
+                    id="search-input"
                     className="search-input"
                     type="text" 
                     value={query}
