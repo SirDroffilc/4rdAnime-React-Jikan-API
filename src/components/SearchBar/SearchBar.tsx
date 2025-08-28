@@ -27,24 +27,28 @@ function SearchBar({ onSearch, filter} : SearchBarProps) {
     }
 
     return (
-        <div className="search-container">
-            <div className="input-wrapper">
-                <input 
-                    id="search-input"
-                    className="search-input"
-                    type="text" 
-                    value={query}
-                    placeholder={`Search for ${filter}... `}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyDown}
-                />
-                <div className="button-wrapper">
-                    <button className="search-button" onClick={handleSearchButtonClick}>
-                        <img src={searchIcon} alt="search-icon" />
-                    </button>
+        <>
+            <h1 className="website-name">4rdAnime</h1>
+            <div className="search-container">
+                <div className="input-wrapper">
+                    <input 
+                        id="search-input"
+                        className="search-input"
+                        type="text" 
+                        value={query}
+                        placeholder={`Search for ${filter}... `}
+                        onChange={handleInputChange}
+                        onKeyDown={handleKeyDown}
+                    />
+                    <div className="button-wrapper">
+                        <button className="search-button" onClick={handleSearchButtonClick}>
+                            <img src={searchIcon} alt="search-icon" />
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+        
         
     )
 }

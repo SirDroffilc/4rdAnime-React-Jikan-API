@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import SearchBar from "../../components/SearchBar/SearchBar.tsx";
 import SearchAnimeResult from "../../components/SearchAnimeResult/SearchAnimeResult.tsx";
-import "./SearchAnime.css";
 
+import "./SearchAnime.css"
 function SearchAnime() {
     const [query, setQuery] = useState<string>("");
     const [pageNumber, setPageNumber] = useState<number>(1);
@@ -19,8 +19,10 @@ function SearchAnime() {
         staleTime: 1000 * 60,
     });
 
-    const searchResults = data?.data ?? [];
     const pageCount = data?.pagination?.last_visible_page ?? 0;
+    const searchResults = data?.data ?? [];
+    console.log(searchResults)
+    
 
     function handleSearch(query: string) {
         setQuery(query);
@@ -47,16 +49,13 @@ function SearchAnime() {
 
     return (
         <>
-            <h1 className="website-name">4rdAnime</h1>
             <SearchBar onSearch={handleSearch} filter="anime" />
 
             <div className="search-results-container">
                 {isError && <p>Error: {(error as Error).message}</p>}
 
                 <ul
-                    className={`search-results-items-grid ${
-                        searchResults.length <= 7 ? "few-results-flex" : ""
-                    }`}
+                    className="search-results-items-grid"
                 >
                     {searchResults.map((anime: any, i: number) => (
                         <li key={anime.mal_id ?? i}>
