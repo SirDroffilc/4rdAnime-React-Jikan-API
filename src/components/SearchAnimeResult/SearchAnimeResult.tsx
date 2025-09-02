@@ -1,11 +1,11 @@
-import "./SearchAnimeResult.css"
-import playIcon from "../../assets/play-icon.png"
+import "./SearchAnimeResult.css";
+import playIcon from "../../assets/play-icon.png";
 
 interface Genre {
     mal_id: number;
     name: string;
     type: string;
-    url: string
+    url: string;
 }
 
 interface Anime {
@@ -27,14 +27,28 @@ interface Anime {
     };
 }
 
-function SearchAnimeResult({ anime }: { anime: Anime}) {
-    return(
-        <div className="search-result-item-container">
+function SearchAnimeResult({
+    anime,
+    className,
+}: {
+    anime: Anime;
+    className: string;
+}) {
+    return (
+        <div className={`search-result-item-container ${className ?? ""}`}>
             <div className="search-result-item-upper">
-                <img className="item-wallpaper"src={anime.images.webp.large_image_url} alt={anime.title} />
+                <img
+                    className="item-wallpaper"
+                    src={anime.images.webp.large_image_url}
+                    alt={anime.title}
+                />
                 <div className="overlay-info">
                     <div className="item-episodes">
-                        <img className="play-icon" src={playIcon} alt="play-icon" />
+                        <img
+                            className="play-icon"
+                            src={playIcon}
+                            alt="play-icon"
+                        />
                         <p>{anime.episodes}</p>
                     </div>
                     <div className="item-status">
@@ -42,16 +56,18 @@ function SearchAnimeResult({ anime }: { anime: Anime}) {
                     </div>
                 </div>
             </div>
-            
+
             <div className="search-result-item-info">
                 <p className="info-title">{anime.title}</p>
                 <div className="info-details">
-                    <p className="info-type">{anime.type} &#183; {anime.year}</p>
+                    <p className="info-type">
+                        {anime.type} &#183; {anime.year}
+                    </p>
                     <p className="info-score">{anime.score} ⭐</p>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default SearchAnimeResult
+export default SearchAnimeResult;

@@ -19,24 +19,6 @@
     flex: 1;
 }
 
-
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-@media (max-width: 500px) {
-    .recent-animes-grid {
-        justify-content: center;
-    }
-
-    .recent-animes-grid li {
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-}
-
 .recent-animes-container {
     padding: 0;
 }
@@ -44,9 +26,8 @@ ul {
 .recent-animes-grid {
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 23px;
-    justify-content: flex-start;
+    grid-template-columns: repeat(5, minmax(180px, max-content));
+    justify-content: center;
 }
 
 .recent-animes-grid li {
@@ -54,8 +35,8 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    width: 200px;
+    margin: 0.5rem 0 2rem 0;
+    width: 320px;
 }
 
 #recent-category {

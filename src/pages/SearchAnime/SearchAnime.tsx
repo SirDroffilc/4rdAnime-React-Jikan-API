@@ -59,7 +59,7 @@ function SearchAnime() {
                 >
                     {searchResults.map((anime: any, i: number) => (
                         <li key={anime.mal_id ?? i}>
-                            <SearchAnimeResult anime={anime} />
+                            <SearchAnimeResult anime={anime} className="large-card" />
                         </li>
                     ))}
                 </ul>

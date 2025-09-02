@@ -63,7 +63,7 @@ async function fetchCarouselAnimes() {
                 synopsis: data.data?.synopsis || "No synopsis found",
             });
 
-            await new Promise((resolve) => setTimeout(resolve, 350));
+            await new Promise((resolve) => setTimeout(resolve, 500));
         } catch {
             updatedList.push({ ...anime, synopsis: "Error fetching synopsis" });
         }
@@ -100,6 +100,7 @@ function Home() {
         queryKey: ["carouselAnimes"],
         queryFn: fetchCarouselAnimes,
         staleTime: 1000 * 60 * 5,
+        enabled: !!recentData && !!popularData
     });
 
     if (recentError || popularError || carouselError)
@@ -120,7 +121,7 @@ function Home() {
                     <ul className="recent-animes-grid">
                         {recentData?.data?.map((anime: any, i: number) => (
                             <li key={i}>
-                                <SearchAnimeResult anime={anime} />
+                                <SearchAnimeResult anime={anime} className="small-card"/>
                             </li>
                         ))}
                     </ul>

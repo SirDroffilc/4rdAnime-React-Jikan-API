@@ -96,103 +96,201 @@
 /* ========= RESPONSIVENESS =========== */
 
 @media (max-width: 600px) {
-    .search-result-item-container {
+    .search-result-item-container  {
         width: 180px;
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container .item-episodes, 
+    .search-result-item-container .item-status {
         padding: 6px 8px;
         font-size: 0.65rem;
     }
 }
 
 @media (min-width: 600px) and (max-width: 1000px) {
-    .search-result-item-container {
+    .search-result-item-container.large-card {
         width: 160px;
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 5px 7px;
         font-size: 0.6rem;
     }
-    .play-icon {
+    .search-result-item-container.large-card .play-icon {
         width: 11px;
     }
-    .info-title {
+    .search-result-item-container.large-card .info-title {
         font-size: 1rem;
     }
-    .info-details {
+    .search-result-item-container.large-card .info-details {
         font-size: 0.75rem;
+    }
+
+    /* SMALL */
+
+    .search-result-item-container.small-card  {
+        width: 180px;
+    }
+
+    .search-result-item-container.small-card .item-episodes, 
+    .search-result-item-container.small-card .item-status {
+        padding: 6px 8px;
+        font-size: 0.65rem;
     }
 }
 
 @media (min-width: 1000px) and (max-width: 1200px) {
-    .search-result-item-container {
+    .search-result-item-container.large-card  {
         width: 160px;
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 5px 7px;
         font-size: 0.6rem;
     }
-    .play-icon {
+    .search-result-item-container.large-card .play-icon {
         width: 11px;
     }
-    .info-title {
+    .search-result-item-container.large-card .info-title {
         font-size: 1rem;
     }
-    .info-details {
+    .search-result-item-container.large-card .info-details {
+        font-size: 0.75rem;
+    }
+
+    /* SMALL */
+
+    .search-result-item-container.small-card {
+        width: 160px;
+    }
+
+    .search-result-item-container.small-card .item-episodes, 
+    .search-result-item-container.small-card .item-status {
+        padding: 5px 7px;
+        font-size: 0.6rem;
+    }
+    .search-result-item-container.small-card .play-icon {
+        width: 11px;
+    }
+    .search-result-item-container.small-card .info-title {
+        font-size: 1rem;
+    }
+    .search-result-item-container.small-card .info-details {
         font-size: 0.75rem;
     }
 }
 
 @media (min-width: 1200px) and (max-width: 1400px) {
-    .search-result-item-container {
+    .search-result-item-container.large-card  {
         width: 200px;
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 7px 11px;
         font-size: 0.7rem;
     }
-    .play-icon {
+    .search-result-item-container.large-card .play-icon {
         width: 14px;
     }
-    .info-title {
+    .search-result-item-container.large-card .info-title {
         font-size: 1rem;
     }
-    .info-details {
+    .search-result-item-container.large-card .info-details {
         font-size: 0.8rem;
+    }
+
+    /* SMALL */
+
+    .search-result-item-container.small-card  {
+        width: 160px;
+    }
+
+    .search-result-item-container.small-card .item-episodes, 
+    .search-result-item-container.small-card .item-status {
+        padding: 5px 7px;
+        font-size: 0.6rem;
+    }
+    .search-result-item-container.small-card .play-icon {
+        width: 11px;
+    }
+    .search-result-item-container.small-card .info-title {
+        font-size: 1rem;
+    }
+    .search-result-item-container.small-card .info-details {
+        font-size: 0.75rem;
     }
 }
 
 @media (min-width: 1400px) and (max-width: 1800px) {
-    .search-result-item-container {
+    .search-result-item-container.large-card  {
         width: 240px;
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 7px 11px;
         font-size: 0.9rem;
     }
-    .play-icon {
+    .search-result-item-container.large-card .play-icon {
         width: 17px;
+    }
+
+    /* SMALL */
+
+    .search-result-item-container.small-card  {
+        width: 200px;
+    }
+
+    .search-result-item-container.small-card .item-episodes, 
+    .search-result-item-container.small-card .item-status {
+        padding: 7px 11px;
+        font-size: 0.7rem;
+    }
+    .search-result-item-container.small-card .play-icon {
+        width: 14px;
+    }
+    .search-result-item-container.small-card .info-title {
+        font-size: 1rem;
+    }
+    .search-result-item-container.small-card .info-details {
+        font-size: 0.8rem;
     }
 
     
 }
 
 @media (min-width: 1800px) {
-    .search-result-item-container {
+    /* LARGE */
+    .search-result-item-container.large-card {
         width: 320px; /* -80 */
     }
 
-    .item-episodes, .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 8px 12px;
     }
-    .play-icon {
+    .search-result-item-container.large-card .play-icon {
         width: 18px;
     }
+
+    /* SMALL */
+
+    .search-result-item-container.small-card  {
+        width: 240px;
+    }
+
+    .search-result-item-container.small-card .item-episodes, 
+    .search-result-item-container.small-card .item-status {
+        padding: 7px 11px;
+        font-size: 0.9rem;
+    }
+    .search-result-item-container.small-card .play-icon {
+        width: 17px;
+    }
+
 }
 
 
