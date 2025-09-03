@@ -27,8 +27,36 @@
     margin: 0;
     display: grid;
     grid-template-columns: repeat(5, minmax(180px, max-content));
-    justify-content: center;
+
+    justify-content: space-between;
 }
+
+@media (max-width: 750px) {
+    .recent-and-popular-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 950px) {
+    .recent-animes-grid {
+        grid-template-columns: repeat(2,  minmax(180px, max-content));
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+}
+@media (min-width: 950px) and (max-width: 1100px ) {
+    .recent-animes-grid {
+        grid-template-columns: repeat(3,  minmax(180px, max-content));
+    }
+}
+
+@media (min-width: 1100px) and (max-width: 1275px ) {
+    .recent-animes-grid {
+        grid-template-columns: repeat(4,  minmax(180px, max-content));
+    }
+}
+
+
 
 .recent-animes-grid li {
     display: flex;
@@ -36,11 +64,16 @@
     align-items: center;
     justify-content: center;
     margin: 0.5rem 0 2rem 0;
-    width: 320px;
 }
 
 #recent-category {
     margin-bottom: 8px;
+}
+
+.home-popular-animes-list {
+
+    display: flex;
+    flex-direction: column;
 }
 
 .home-popular-animes-list li {
@@ -50,3 +83,4 @@
 .loading-text {
     color: rgb(150, 150, 150);
 }
+

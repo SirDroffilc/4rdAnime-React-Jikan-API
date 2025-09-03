@@ -3,9 +3,8 @@
     align-items: center;
     gap: 15px;
 
-    width: 22rem;
-    height: 7rem;
-    padding: 15px;
+    aspect-ratio: 22/8;
+    padding: 1rem;
 
     background-color: #024340;
     border: none;
@@ -15,11 +14,9 @@
 }
 
 .home-popular-ranking {
-    font-size: 4rem;
     font-weight: bold;
     color: #031716;
     flex-shrink: 0; /* prevents shrinking */
-    width: 4.5rem;
     text-align: center;
 }
 
@@ -53,4 +50,99 @@
     font-size: 0.9rem;
     color: rgb(180, 180, 180);
     margin: 0;
+}
+
+@media (max-width: 600px) {
+    .home-popular-container {
+        width: inherit;
+    }
+    .home-popular-ranking {
+        font-size: 5rem;
+        width: 6rem;
+    }
+    .home-popular-info .title {
+        font-size: 1.3rem;
+    }
+    .home-popular-info .episode {
+        font-size: 1rem;
+    }
+}
+@media (min-width: 600px) and (max-width: 750px) {
+    .home-popular-container {
+        width: inherit;
+    }
+    .home-popular-ranking {
+        font-size: 7rem;
+        width: 8rem;
+    }
+    .home-popular-info .title {
+        font-size: 2rem;
+    }
+    .home-popular-info .episode {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 1300px) {
+    .home-popular-container {
+        width: 16rem;
+    }
+    .home-popular-ranking {
+        font-size: 2.5rem;
+        width: 2.5rem;
+    }
+    .home-popular-info .title {
+        font-size: 0.8rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1300px)  and (max-width: 1500px) {
+    .home-popular-container {
+        width: 16rem;
+    }
+    .home-popular-ranking {
+        font-size: 2.5rem;
+        width: 2.5rem;
+    }
+    .home-popular-info .title {
+        font-size: 0.8rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1500px)  and (max-width: 1600px) {
+    .home-popular-container {
+        width: 18rem;
+    }
+    .home-popular-ranking {
+        font-size: 3rem;
+        width: 3rem;
+    }
+    .home-popular-info .title {
+        font-size: 0.9rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    .home-popular-container {
+        width: 22rem;
+    }
+    .home-popular-ranking {
+        font-size: 4rem;
+        width: 4rem;
+    }
+    .home-popular-info .title {
+        font-size: 0.9rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.8rem;
+    }
 }
