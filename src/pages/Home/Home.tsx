@@ -43,7 +43,7 @@ async function fetchRecentAnimes() {
 
 async function fetchPopularAnimes() {
     const url: string =
-        "https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=15";
+        "https://api.jikan.moe/v4/top/anime?filter=bypopularity&limit=20";
     const response = await fetch(url);
     if (!response.ok) throw new Error("fetchPopularAnimes() error");
     return response.json();

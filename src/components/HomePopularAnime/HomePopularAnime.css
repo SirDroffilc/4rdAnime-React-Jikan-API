@@ -3,6 +3,8 @@
     align-items: center;
     gap: 15px;
 
+    width: inherit;
+
     aspect-ratio: 22/8;
     padding: 1rem;
 
@@ -53,9 +55,6 @@
 }
 
 @media (max-width: 600px) {
-    .home-popular-container {
-        width: inherit;
-    }
     .home-popular-ranking {
         font-size: 5rem;
         width: 6rem;
@@ -68,9 +67,7 @@
     }
 }
 @media (min-width: 600px) and (max-width: 750px) {
-    .home-popular-container {
-        width: inherit;
-    }
+
     .home-popular-ranking {
         font-size: 7rem;
         width: 8rem;
@@ -83,10 +80,8 @@
     }
 }
 
-@media (min-width: 750px) and (max-width: 1300px) {
-    .home-popular-container {
-        width: 16rem;
-    }
+@media (min-width: 750px) and (max-width: 1350px) {
+
     .home-popular-ranking {
         font-size: 2.5rem;
         width: 2.5rem;
@@ -99,10 +94,7 @@
     }
 }
 
-@media (min-width: 1300px)  and (max-width: 1500px) {
-    .home-popular-container {
-        width: 16rem;
-    }
+@media (min-width: 1350px)  and (max-width: 1500px) {
     .home-popular-ranking {
         font-size: 2.5rem;
         width: 2.5rem;
@@ -116,9 +108,6 @@
 }
 
 @media (min-width: 1500px)  and (max-width: 1600px) {
-    .home-popular-container {
-        width: 18rem;
-    }
     .home-popular-ranking {
         font-size: 3rem;
         width: 3rem;
@@ -132,9 +121,6 @@
 }
 
 @media (min-width: 1600px) {
-    .home-popular-container {
-        width: 22rem;
-    }
     .home-popular-ranking {
         font-size: 4rem;
         width: 4rem;
