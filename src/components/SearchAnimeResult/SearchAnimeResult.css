@@ -96,12 +96,12 @@
 /* ========= RESPONSIVENESS =========== */
 
 @media (max-width: 600px) {
-    .search-result-item-container  {
+    .search-result-item-container.large-card  {
         width: 180px;
     }
 
-    .search-result-item-container .item-episodes, 
-    .search-result-item-container .item-status {
+    .search-result-item-container.large-card .item-episodes, 
+    .search-result-item-container.large-card .item-status {
         padding: 6px 8px;
         font-size: 0.65rem;
     }

@@ -1,1 +1,21 @@
 /* TODO: (currently have same className with SearchAnime)*/
+
+.item-favorites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 20px;
+    z-index: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+}
+
+.item-favorites {
+    background-color: #0A7075;
+}
+
+.search-result-item-info {
+    font-weight: bold;
+}

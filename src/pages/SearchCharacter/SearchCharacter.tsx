@@ -48,7 +48,6 @@ function SearchCharacter() {
     return (
         <>
             <div className="search-div">
-                <h1 className="website-name">4rdAnime</h1>
                 <SearchBar onSearch={handleSearch} filter="character" />
             </div>
 
@@ -61,7 +60,7 @@ function SearchCharacter() {
                 >
                     {searchResults.map((character: any, i: number) => (
                         <li key={i}>
-                            <SearchCharacterResult character={character} />
+                            <SearchCharacterResult character={character} className="large-card"/>
                         </li>
                     ))}
                 </ul>
