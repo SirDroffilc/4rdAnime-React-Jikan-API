@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import TopAnimeResult from "../../components/TopAnimeResult/TopAnimeResult";
-import "./TopAnime.css"
+import "./TopAnime.css";
 import { useState } from "react";
 
 interface Genre {
@@ -32,13 +32,12 @@ interface Anime {
     synopsis?: string | null;
 }
 
-
-
 function TopAnime() {
-    const [pageNumber, setPageNumber] = useState(1)
+    const [pageNumber, setPageNumber] = useState(1);
+    const [filter, setFilter] = useState("");
 
     async function fetchTopAnime() {
-        const url: string = `https://api.jikan.moe/v4/top/anime?page=${pageNumber}`;
+        const url: string = `https://api.jikan.moe/v4/top/anime?filter=${filter}&page=${pageNumber}`;
         const response = await fetch(url);
         if (!response.ok) throw new Error("fetchTopPopularAnime() error");
         return response.json();
@@ -49,36 +48,62 @@ function TopAnime() {
         isLoading: topAnimeLoading,
         error: topAnimeError,
     } = useQuery({
-        queryKey: ["topAnime", pageNumber],
+        queryKey: ["topAnime", pageNumber, filter],
         queryFn: fetchTopAnime,
         staleTime: 1000 * 60 * 5,
     });
 
-    const pageCount = topAnimeData?.pagination?.last_visible_page ?? 0
+    const pageCount = topAnimeData?.pagination?.last_visible_page ?? 0;
 
     function handlePrevButtonClick() {
-        setPageNumber(pageNumber => pageNumber - 1)
+        setPageNumber((pageNumber) => pageNumber - 1);
     }
 
-    function handleNextButtonClick () {
-        setPageNumber(pageNumber => pageNumber + 1)
+    function handleNextButtonClick() {
+        setPageNumber((pageNumber) => pageNumber + 1);
     }
 
-    if (topAnimeError) return (<p>Error fetching data</p>)
+    function handleFilterButtonClick(filter: string) {
+        setFilter(filter);
+    }
+
+    if (topAnimeError) return <p>Error fetching data</p>;
 
     return (
         <div className="top-anime-container">
+            <div className="page-title-section">
+                <h1 className="page-title">Top Anime</h1>
+                <div className="filter-buttons-container">
+                    <button
+                        className={`filter-button ${filter === "" ? "selected" : ""}`}
+                        onClick={() => handleFilterButtonClick("")}
+                    >
+                        Top Rated
+                    </button>
+                    <button
+                        className={`filter-button ${filter === "bypopularity" ? "selected" : ""}`}
+                        onClick={() => handleFilterButtonClick("bypopularity")}
+                    >
+                        Most Popular
+                    </button>
+                </div>
+            </div>
+
             <ul className="top-anime-grid">
                 {topAnimeData?.data?.map((anime: Anime, i: number) => (
                     <li key={i}>
-                        <TopAnimeResult anime={anime} />
+                        <TopAnimeResult anime={anime} filter={filter}/>
                     </li>
                 ))}
             </ul>
 
-            {topAnimeLoading && (<p>Loading Top Anime...</p>)}
-            {(pageNumber > 1) && !topAnimeLoading && (<button onClick={handlePrevButtonClick}>Previous</button>)}
-            {(pageNumber < pageCount) && !topAnimeLoading && (<button onClick={handleNextButtonClick}>Next</button>)}
+            {topAnimeLoading && <p>Loading Top Anime...</p>}
+            {pageNumber > 1 && !topAnimeLoading && (
+                <button onClick={handlePrevButtonClick}>Previous</button>
+            )}
+            {pageNumber < pageCount && !topAnimeLoading && (
+                <button onClick={handleNextButtonClick}>Next</button>
+            )}
         </div>
     );
 }

@@ -7,7 +7,7 @@
     overflow: hidden;
     padding: 30px;
 
-    box-shadow: 0px 0px 3px 1px gray;
+    box-shadow: 0px 0px 3px 1px rgb(75, 75, 75);
     box-sizing: border-box;
     
 }
@@ -24,12 +24,11 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 0 4.5rem;
+    padding: 0 5rem;
     margin-bottom: 1rem;
 }
 
 #top-anime-title, #top-anime-rank {
-    font-size: 3rem;
     margin: 0;
 }
 
@@ -37,13 +36,75 @@
     overflow: hidden;
     text-wrap: nowrap;
     text-overflow: ellipsis;
-    font-size: 2.5rem;
 }
 
 #top-anime-rank {
     position: absolute;
     right: 0;
-    font-size: 3rem;
+}
+
+
+.top-anime-result-details-section {
+    margin-bottom: 2rem; 
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+    justify-content: space-between;
+}
+
+.top-anime-type, .top-anime-episodes, .genre-container, .top-anime-score {
+    padding: 8px 15px;
+    border-radius: 50px;
+}
+
+.left-details {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.top-anime-type {
+    overflow: hidden;
+    text-wrap: nowrap;
+}
+
+.top-anime-episodes {
+    background-color: #024340;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-anime-genres {
+    display: flex;
+    flex-direction: row;
+    flex: 2.5;
+    gap: 0.7rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.genre-container {
+    background-color: #0a7075;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-wrap: nowrap;
+
+}
+
+.top-anime-score {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: right;
+    text-wrap: nowrap;
+}
+
+.top-anime-result-image-section {
+    align-items: flex-start;
 }
 
 .top-anime-img {
@@ -51,4 +112,427 @@
     aspect-ratio: 2 / 3;
     object-fit: cover;
     cursor: pointer;
+}
+
+.top-anime-synopsis {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 13; /* adjust this depending on your image height */
+    text-overflow: ellipsis;
+    line-height: 1.5rem;
+    max-height: calc(1.5rem * 15); /* keep in sync with line-clamp */
+}
+
+/* ===== RESPONSIVENESS ===== */
+
+@media (max-width: 400px) {
+    .top-anime-result-container {
+        padding: 10px;
+        aspect-ratio: 3/4;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 1.8rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.5rem;
+    }
+
+    #top-anime-title {
+        font-size: 1rem;
+    }
+
+    #top-anime-rank {
+        font-size: 1.2rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.5rem;
+        padding: 2px 7px;
+    }
+    
+    .genre-container:nth-child(n+2) {
+        display: none;
+    }
+
+    .top-anime-synopsis {
+        display: none;
+    }
+
+    .top-anime-result-image-section {
+        justify-content: center;
+    }
+
+    .top-anime-img {
+        width: 70%;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+    .top-anime-result-container {
+        padding: 12px;
+        aspect-ratio: 3/4;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 2rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.7rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.2rem;
+    }
+
+    #top-anime-rank {
+        font-size: 1.5rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+    
+    .genre-container:nth-child(n+2) {
+        display: none;
+    }
+
+    .top-anime-synopsis {
+        display: none;
+    }
+
+    .top-anime-result-image-section {
+        justify-content: center;
+    }
+
+    .top-anime-img {
+        width: 70%;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
+    .top-anime-result-container {
+        padding: 15px;
+        aspect-ratio: 3/4;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 2rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.7rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.5rem;
+    }
+
+    #top-anime-rank {
+        font-size: 1.8rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.8rem;
+        padding: 3px 8px;
+    }
+
+    .genre-container:nth-child(n+2) {
+        display: none;
+    }
+
+    .top-anime-synopsis {
+        display: none;
+    }
+
+    .top-anime-result-image-section {
+        justify-content: center;
+    }
+
+    .top-anime-img {
+        width: 70%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 650px) {
+    .top-anime-result-container {
+        padding: 25px;
+        aspect-ratio: 3/4;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 3rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.7rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.5rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 1rem;
+    }
+
+    .genre-container:nth-child(n+2) {
+        display: none;
+    }
+
+    .top-anime-synopsis {
+        display: none;
+    }
+
+    .top-anime-result-image-section {
+        justify-content: center;
+    }
+
+    .top-anime-img {
+        width: 75%;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 768px) {
+    .top-anime-result-container {
+        padding: 25px;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.5rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.5rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.8rem;
+    }
+
+    .genre-container:nth-child(n+3) {
+        display: none;
+    }
+
+    .top-anime-synopsis {
+        font-size: 0.9rem;
+        line-height: 1.4rem;
+        -webkit-line-clamp: 8;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 875px) {
+    .top-anime-result-container {
+        padding: 30px;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .top-anime-result-details-section {
+        margin-bottom: 0.5rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.8rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2.8rem;
+    }
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.9rem;
+    }
+
+    .top-anime-synopsis {
+        font-size: 1rem;
+        line-height: 1.6rem;
+        -webkit-line-clamp: 10;
+    }
+}
+
+@media (min-width: 875px) and (max-width: 1000px) {
+    .top-anime-result-container {
+        padding: 30px;
+    }
+
+    .top-anime-result-title-section,
+    .top-anime-result-details-section,
+    .top-anime-result-image-section {
+        gap: 20px;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 5rem;
+        margin-bottom: 1rem;
+    }
+
+    #top-anime-title {
+        font-size: 2rem;
+    }
+
+    #top-anime-rank {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    .top-anime-result-title-section,
+    .top-anime-result-details-section {
+        margin-bottom: 0.7rem;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 2.5rem;
+    }
+
+    .top-anime-genres .genre-container:nth-child(n+2) {
+        display: none;
+    }
+    
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.8rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.4rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2rem;
+    }
+    .top-anime-synopsis {
+        font-size: 0.9rem;
+        line-height: 1.3rem;
+        -webkit-line-clamp: 8;
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1500px) {
+    .top-anime-result-title-section,
+    .top-anime-result-details-section {
+        margin-bottom: 0.8rem;
+    }
+
+    .top-anime-genres .genre-container:nth-child(n+3) {
+        display: none;
+    }
+    
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.9rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.75rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2.7rem;
+    }
+    .top-anime-synopsis {
+        font-size: 0.9rem;
+        line-height: 1.35rem;
+        -webkit-line-clamp: 10;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+
+    .top-anime-type,
+    .top-anime-episodes,
+    .genre-container,
+    .top-anime-score {
+        font-size: 0.9rem;
+    }
+
+    #top-anime-title {
+        font-size: 1.75rem;
+    }
+
+    #top-anime-rank {
+        font-size: 2.75rem;
+    }
+    .top-anime-synopsis {
+        -webkit-line-clamp: 11;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+    .top-anime-synopsis {
+        -webkit-line-clamp: 12;
+    }
+}
+
+@media (min-width: 1700px) {
+    .top-anime-result-container {
+        padding: 30px;
+        aspect-ratio: 4 / 3;
+    }
+
+    .top-anime-result-title-section,
+    .top-anime-result-details-section,
+    .top-anime-result-image-section {
+        gap: 20px;
+    }
+
+    .top-anime-result-title-section {
+        padding: 0 5rem;
+        margin-bottom: 1rem;
+    }
+
+    #top-anime-title {
+        font-size: 2rem;
+    }
+
+    #top-anime-rank {
+        font-size: 3rem;
+    }
 }
