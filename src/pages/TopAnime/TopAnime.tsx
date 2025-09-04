@@ -1,9 +1,86 @@
-function TopAnime() {
-    return (
-        <>
-            TOP ANIME
-        </>
-    )
+import { useQuery } from "@tanstack/react-query";
+import TopAnimeResult from "../../components/TopAnimeResult/TopAnimeResult";
+import "./TopAnime.css"
+import { useState } from "react";
+
+interface Genre {
+    mal_id: number;
+    name: string;
+    type: string;
+    url: string;
 }
 
-export default TopAnime
+interface Anime {
+    mal_id: number;
+    url: string;
+    title?: string;
+    type?: string | null;
+    episodes?: number | null;
+    score?: number | null;
+    status?: string | null;
+    year?: number | null;
+    genres?: Genre[];
+    images: {
+        webp: {
+            image_url: string;
+            small_image_url: string;
+            large_image_url: string;
+        };
+    };
+    rank?: string | null;
+    popularity?: string | null;
+    synopsis?: string | null;
+}
+
+
+
+function TopAnime() {
+    const [pageNumber, setPageNumber] = useState(1)
+
+    async function fetchTopAnime() {
+        const url: string = `https://api.jikan.moe/v4/top/anime?page=${pageNumber}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("fetchTopPopularAnime() error");
+        return response.json();
+    }
+
+    const {
+        data: topAnimeData,
+        isLoading: topAnimeLoading,
+        error: topAnimeError,
+    } = useQuery({
+        queryKey: ["topAnime", pageNumber],
+        queryFn: fetchTopAnime,
+        staleTime: 1000 * 60 * 5,
+    });
+
+    const pageCount = topAnimeData?.pagination?.last_visible_page ?? 0
+
+    function handlePrevButtonClick() {
+        setPageNumber(pageNumber => pageNumber - 1)
+    }
+
+    function handleNextButtonClick () {
+        setPageNumber(pageNumber => pageNumber + 1)
+    }
+
+    if (topAnimeError) return (<p>Error fetching data</p>)
+
+    return (
+        <div className="top-anime-container">
+            <ul className="top-anime-grid">
+                {topAnimeData?.data?.map((anime: Anime, i: number) => (
+                    <li key={i}>
+                        <TopAnimeResult anime={anime} />
+                    </li>
+                ))}
+            </ul>
+
+            {topAnimeLoading && (<p>Loading Top Anime...</p>)}
+            {(pageNumber > 1) && !topAnimeLoading && (<button onClick={handlePrevButtonClick}>Previous</button>)}
+            {(pageNumber < pageCount) && !topAnimeLoading && (<button onClick={handleNextButtonClick}>Next</button>)}
+        </div>
+    );
+}
+
+export default TopAnime;

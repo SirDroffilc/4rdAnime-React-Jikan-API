@@ -1,0 +1,54 @@
+.top-anime-result-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    padding: 30px;
+
+    box-shadow: 0px 0px 3px 1px gray;
+    box-sizing: border-box;
+    
+}
+
+.top-anime-result-title-section,
+.top-anime-result-details-section,
+.top-anime-result-image-section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.top-anime-result-title-section {
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 4.5rem;
+    margin-bottom: 1rem;
+}
+
+#top-anime-title, #top-anime-rank {
+    font-size: 3rem;
+    margin: 0;
+}
+
+#top-anime-title {
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    font-size: 2.5rem;
+}
+
+#top-anime-rank {
+    position: absolute;
+    right: 0;
+    font-size: 3rem;
+}
+
+.top-anime-img {
+    width: 35%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    cursor: pointer;
+}
