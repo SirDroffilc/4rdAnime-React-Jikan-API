@@ -1,15 +1,26 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
-import SearchBar from "../SearchBar/SearchBar"
 import "./Header.css"
 
 function Header() {
+    const [ isOpen, setIsOpen ] = useState(false)
+
+    function toggleMenu() {
+        setIsOpen(prevState => !prevState)
+
+
+    }
     return (
         <header className="header">
             <div className="name-section">
                 4rdAnime
             </div>
 
-            <div className="nav-section">
+            <div className="hamburger-section">
+                <button className="hamburger" onClick={toggleMenu}>☰</button>
+            </div>
+
+            <div className={`nav-section ${isOpen ? "open" : "close"}`}>
                 <nav>
                     <ul>
                         <li>
