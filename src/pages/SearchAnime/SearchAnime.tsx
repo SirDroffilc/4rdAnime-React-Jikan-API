@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom"
 import SearchBar from "../../components/SearchBar/SearchBar.tsx";
 import SearchAnimeResult from "../../components/SearchAnimeResult/SearchAnimeResult.tsx";
 
@@ -59,7 +60,10 @@ function SearchAnime() {
                 >
                     {searchResults.map((anime: any, i: number) => (
                         <li key={anime.mal_id ?? i}>
-                            <SearchAnimeResult anime={anime} className="large-card" />
+                            <Link to={`/anime/${anime.mal_id}`}>
+                                <SearchAnimeResult anime={anime} className="large-card" />
+                            </Link>
+                            
                         </li>
                     ))}
                 </ul>

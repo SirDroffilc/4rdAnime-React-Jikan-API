@@ -118,10 +118,10 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 13; /* adjust this depending on your image height */
+    -webkit-line-clamp: 13; 
     text-overflow: ellipsis;
     line-height: 1.5rem;
-    max-height: calc(1.5rem * 15); /* keep in sync with line-clamp */
+    max-height: calc(1.5rem * 15); 
 }
 
 /* ===== RESPONSIVENESS ===== */
