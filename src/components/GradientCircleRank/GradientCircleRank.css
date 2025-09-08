@@ -1,0 +1,28 @@
+.circle-container {
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-container.deg-180 {
+    background: linear-gradient(180deg, #024340, #14A9B1);
+}
+
+.circle-container.deg-0 {
+    background: linear-gradient(0deg, #024340, #14A9B1);
+}
+
+.circle-category {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.circle-rank {
+    font-weight: bold;
+    font-size: 5rem;
+}
