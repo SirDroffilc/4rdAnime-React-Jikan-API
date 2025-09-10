@@ -146,7 +146,7 @@
     gap: 1.5rem;
 }
 
-.details-right-synopsis-section {
+.details-right-synopsis-section, .details-right-characters-section{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -159,4 +159,11 @@
     font-size: 1rem;
     line-height: 1.8rem;
     color: rgb(200, 200, 200);
+}
+
+.details-characters-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
 }

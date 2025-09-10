@@ -5,6 +5,8 @@ import GradientCircleRank from "../../components/GradientCircleRank/GradientCirc
 import ScoreStars from "../../components/ScoreStars/ScoreStars";
 import AnimeTrailer from "../../components/AnimeTrailer/AnimeTrailer";
 import AnimeTheme from "../../components/AnimeTheme/AnimeTheme";
+import DetailsCharacter from "../../components/DetailsCharacter/DetailsCharacter";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 interface Anime {
     mal_id: number;
@@ -87,12 +89,15 @@ interface Anime {
 function AnimeInfo() {
     const { id } = useParams<{ id: string }>();
     const [anime, setAnime] = useState<Anime | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const [animeLoading, setAnimeLoading] = useState(true);
+    const [animeError, setAnimeError] = useState<string | null>(null);
+    const [characters, setCharacters] = useState([]);
+    const [charactersLoading, setCharactersLoading] = useState(true);
+    const [charactersError, setCharactersError] = useState(null);
 
     async function fetchAnime() {
-        setLoading(true);
-        setError(null);
+        setAnimeLoading(true);
+        setAnimeError(null);
 
         try {
             const url = `https://api.jikan.moe/v4/anime/${id}/full`;
@@ -101,18 +106,37 @@ function AnimeInfo() {
             const data = await response.json();
             setAnime(data.data);
         } catch (err: any) {
-            setError(err.message);
+            setAnimeError(err.message);
         } finally {
-            setLoading(false);
+            setAnimeLoading(false);
+        }
+    }
+
+    async function fetchCharacters() {
+        setCharactersLoading(true);
+        setCharactersError(null);
+
+        try {
+            const url = `https://api.jikan.moe/v4/anime/${id}/characters`;
+            const response = await fetch(url);
+            if (!response.ok)
+                throw new Error("Failed to fetch anime characters");
+            const data = await response.json();
+            setCharacters(data.data);
+        } catch (err: any) {
+            setCharactersError(err.message);
+        } finally {
+            setCharactersLoading(false);
         }
     }
 
     useEffect(() => {
         fetchAnime();
+        fetchCharacters();
     }, [id]);
 
-    if (loading) return <p>Loading Anime...</p>;
-    if (error) return <h1>Error: {error}</h1>;
+    if (animeLoading) return <p>Loading Anime...</p>;
+    if (animeError) return <h1>Error: {animeError}</h1>;
     if (!anime) return <h1>No anime found.</h1>;
 
     return (
@@ -247,19 +271,29 @@ function AnimeInfo() {
                         </div>
                         <div className="right-theme-side">
                             {anime.theme.openings.slice(0, 2).map((op, i) => (
-                                <AnimeTheme key={i} theme={op} type="OP"/>
+                                <AnimeTheme key={i} theme={op} type="OP" />
                             ))}
                             {anime.theme.endings.slice(0, 2).map((ed, i) => (
-                                <AnimeTheme key={i} theme={ed} type="ED"/>
+                                <AnimeTheme key={i} theme={ed} type="ED" />
                             ))}
                         </div>
                     </div>
-                    <div className="details-right-synopsis-section"> 
+                    <div className="details-right-synopsis-section">
                         <h2>Synopsis</h2>
                         <p>{anime.synopsis ? anime.synopsis : "N/A"}</p>
                         <br />
                         <h2>Background</h2>
                         <p>{anime.background ? anime.background : "N/A"}</p>
+                    </div>
+                    <div className="details-right-characters-section">
+                        <h2>Characters and Voice Actors</h2>
+                        { charactersLoading ? <p>Loading characters and voice actors...</p> : ""}
+                        { charactersError ? <p>Error fetching characters.</p> : ""}
+                        <div className="details-characters-grid">
+                            {characters.slice(0, 10).map((characterData, i) => (
+                                <DetailsCharacter key={i} characterData={characterData} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
