@@ -1,0 +1,25 @@
+.anime-theme-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-icon-wrapper {
+    background-color: #024340;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 2px 2px 5px 1px #14A9B1;
+}
+
+.theme-music-icon {
+    color: #14A9B1;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-title {
+    font-size: 1.2rem;
+}

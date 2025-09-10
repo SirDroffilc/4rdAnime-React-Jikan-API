@@ -1,0 +1,40 @@
+.anime-trailer-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime-trailer-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.trailer-alt {
+    font-size: 3rem;
+    width: 95%;
+    height: 95%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 5px solid #0a7075;
+    color: #0a7075;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.trailer-play-icon {
+    width: 150px;
+    height: 150px;
+    color: #0A7075;
+    margin-right: 1rem;
+}
