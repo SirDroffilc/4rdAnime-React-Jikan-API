@@ -1,0 +1,38 @@
+.score-star-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+
+}
+
+.score-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-category {
+    font-size: 1.5rem;
+
+    margin: 1rem 0 0.5rem 0;
+}
+
+.score-value {
+    font-weight: bold;
+    font-size: 4.3rem;
+}
+
+.score-stars {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.star-icon {
+    width: 70px;
+    height: 70px;
+    color: #0A7075;
+}

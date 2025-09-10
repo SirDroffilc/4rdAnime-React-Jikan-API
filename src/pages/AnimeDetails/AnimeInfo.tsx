@@ -2,6 +2,7 @@ import "./AnimeInfo.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import GradientCircleRank from "../../components/GradientCircleRank/GradientCircleRank";
+import ScoreStars from "../../components/ScoreStars/ScoreStars";
 
 interface Anime {
     mal_id: number;
@@ -217,8 +218,10 @@ Rating: R - 17+ (violence & profanity) */}
 
                 <div className="details-right-container">
                     <div className="details-right-stats-section">
+                        <ScoreStars score={anime.score}/>
                         <GradientCircleRank category="Rank" rank={anime.rank} gradientDeg={180}/>
                         <GradientCircleRank category="Popularity" rank={anime.popularity} gradientDeg={0}/>
+                        
                     </div>
                 </div>
             </div>

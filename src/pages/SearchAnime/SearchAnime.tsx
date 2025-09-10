@@ -20,9 +20,10 @@ function SearchAnime() {
         staleTime: 1000 * 60,
     });
 
+    console.log(data)
+
     const pageCount = data?.pagination?.last_visible_page ?? 0;
     const searchResults = data?.data ?? [];
-    console.log(searchResults)
     
 
     function handleSearch(query: string) {
