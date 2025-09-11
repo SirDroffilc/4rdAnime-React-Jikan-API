@@ -36,3 +36,59 @@
     color: rgb(200, 200, 200);
 }
 
+@media (min-width: 901px) and (max-width: 1200px) {
+    .details-character-container img {
+        width: 70%;
+        margin-bottom: .3rem;
+    }
+
+    .character-names-section {
+        width: 65%;
+    }
+
+    .character-name {
+        font-size: .9rem;
+        line-height: 1rem;
+    }
+    .va-name {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+    .details-character-container img {
+        width: 70%;
+        margin-bottom: .3rem;
+    }
+
+    .character-names-section {
+        width: 65%;
+    }
+
+    .character-name {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .va-name {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1501px) {
+    .details-character-container img {
+        width: 80%;
+        margin-bottom: .5rem;
+    }
+
+    .character-names-section {
+        width: 80%;
+    }
+
+    .character-name {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+    .va-name {
+        font-size: 0.8rem;
+    }
+}

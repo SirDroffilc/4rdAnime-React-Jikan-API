@@ -26,3 +26,76 @@
     font-weight: bold;
     font-size: 4.3rem;
 }
+
+@media (min-width: 1001px) and (max-width: 1200px) {
+    .circle-container {
+        width: 35%;
+    }
+
+    .circle-category {
+        font-size: 1.1rem;
+        margin-bottom: .2rem;
+    }
+
+    .circle-rank {
+        font-size: 2.2rem;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+    .circle-container {
+        width: 30%;
+    }
+
+    .circle-category {
+        font-size: 1.4rem;
+        margin-bottom: .5rem;
+    }
+
+    .circle-rank {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+    .circle-container {
+        width: 25%;
+    }
+
+    .circle-category {
+        font-size: 1.4rem;
+    }
+
+    .circle-rank {
+        font-size: 3rem;
+    }
+}
+
+
+@media (min-width: 1601px) and (max-width: 1700px) {
+    .circle-container {
+        width: 22%;
+    }
+
+    .circle-category {
+        font-size: 1.4rem;
+    }
+
+    .circle-rank {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1701px) {
+    .circle-container {
+        width: 20%;
+    }
+
+    .circle-category {
+        font-size: 1.5rem;
+    }
+
+    .circle-rank {
+        font-size: 4rem;
+    }
+}

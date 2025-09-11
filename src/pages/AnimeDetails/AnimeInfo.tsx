@@ -6,7 +6,6 @@ import ScoreStars from "../../components/ScoreStars/ScoreStars";
 import AnimeTrailer from "../../components/AnimeTrailer/AnimeTrailer";
 import AnimeTheme from "../../components/AnimeTheme/AnimeTheme";
 import DetailsCharacter from "../../components/DetailsCharacter/DetailsCharacter";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 interface Anime {
     mal_id: number;

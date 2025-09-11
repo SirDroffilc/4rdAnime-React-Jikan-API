@@ -167,3 +167,138 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
 }
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .info-title-container h1 {
+        padding: 0.5rem;
+        margin: 0;
+        font-size: 2.5rem;
+    }
+
+    /* LEFT */
+    .details-left-wallpaper-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .details-left-wallpaper-section img {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .details-left-genre {
+        padding: 5px 10px;
+        margin: 0 2px;
+        border-radius: 20px;
+        font-size: .8rem;
+    }
+
+    .details-left-titles-section, .details-left-info-section, .details-left-stats-section{
+        padding: 1rem 1.2rem;
+    }
+
+    .details-left-titles-section h2, .details-left-info-section h2, .details-left-stats-section h2 {
+        margin: 0 0 1rem 0;
+        font-size: 1.1rem;
+    }
+
+    .details-left-titles-section p, .details-left-info-section p, .details-left-stats-section p {
+        font-size: .9rem;
+        margin: 0 0 0.7rem 0;
+        line-height: 1.1rem;
+    }
+
+    /* RIGHT */
+    .details-right-stats-section {
+        width: 100%;
+        padding: 2rem 2rem;
+        gap: 1rem;
+    }
+
+    .details-right-trailer-theme-section {
+        width: 100%;
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .right-theme-side {
+        gap: 1rem;
+    }
+
+    .details-right-synopsis-section, .details-right-characters-section{
+        padding: 1rem 1rem;
+    }
+
+    .details-right-synopsis-section p {
+        font-size: .9rem;
+        line-height: 1.6rem;
+    }
+
+    .details-characters-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: .5rem;
+    }
+}
+
+@media (min-width: 1201px) and (max-width: 1500px) {
+    .details-right-stats-section {
+        width: 100%;
+        padding: 3rem 2rem;
+        gap: 3rem;
+    }
+
+    .details-right-trailer-theme-section {
+        width: 100%;
+        padding: 1rem 2rem;
+        gap: 1rem;
+    }
+
+    .right-theme-side {
+        gap: 1rem;
+    }
+
+    .details-right-synopsis-section, .details-right-characters-section{
+        padding: 1rem 2rem;
+    }
+
+    .details-right-synopsis-section p {
+        font-size: 1rem;
+        line-height: 1.8rem;
+    }
+
+    .details-characters-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: .5rem;
+    }
+}
+
+@media (min-width: 1501px) {
+    .details-right-stats-section {
+        width: 100%;
+        padding: 3rem 2rem;
+        gap: 5rem;
+    }
+
+    .details-right-trailer-theme-section {
+        width: 100%;
+        padding: 1rem 2rem;
+        gap: 3rem;
+    }
+
+    .right-theme-side {
+        gap: 1.5rem;
+    }
+
+    .details-right-synopsis-section, .details-right-characters-section{
+        padding: 1rem 2rem;
+    }
+
+    .details-right-synopsis-section p {
+        font-size: 1rem;
+        line-height: 1.8rem;
+    }
+
+    .details-characters-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+}
