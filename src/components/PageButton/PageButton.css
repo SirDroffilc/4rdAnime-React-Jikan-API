@@ -1,0 +1,14 @@
+.page-button {
+    border: none;
+    background-color: #0a7075;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.page-button:active {
+    opacity: 0.5;
+}

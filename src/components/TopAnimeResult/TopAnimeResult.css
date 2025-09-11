@@ -134,26 +134,26 @@
 
     .top-anime-result-title-section {
         padding: 0 1.8rem;
-        margin-bottom: 0.3rem;
-    }
-
-    .top-anime-result-details-section {
         margin-bottom: 0.5rem;
     }
 
+    .top-anime-result-details-section {
+        margin-bottom: 1rem;
+    }
+
     #top-anime-title {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 
     #top-anime-rank {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .top-anime-type,
     .top-anime-episodes,
     .genre-container,
     .top-anime-score {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
         padding: 2px 7px;
     }
     
@@ -190,7 +190,7 @@
     }
 
     #top-anime-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     #top-anime-rank {
@@ -201,7 +201,7 @@
     .top-anime-episodes,
     .genre-container,
     .top-anime-score {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         padding: 3px 8px;
     }
     

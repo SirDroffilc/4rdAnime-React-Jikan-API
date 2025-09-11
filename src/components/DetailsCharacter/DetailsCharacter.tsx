@@ -33,7 +33,6 @@ function DetailsCharacter({ characterData } : { characterData: CharacterData}) {
                 <p className="character-name">{characterData.character.name}</p>
                 <p className="va-name">{characterData.voice_actors[0]?.person.name ?? ""}</p>
             </div>
-            
         </div>
     )
 }

@@ -44,6 +44,14 @@
     color: white;
 }
 
+.page-buttons-section {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem
+}
+
 @media (max-width: 400px) {
 
     .filter-buttons-container {

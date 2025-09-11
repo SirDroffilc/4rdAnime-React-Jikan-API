@@ -54,7 +54,33 @@
     margin: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
+    .home-popular-ranking {
+        font-size: 3rem;
+        width: 4rem;
+    }
+    .home-popular-info .title {
+        font-size: 1rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 500px) {
+    .home-popular-ranking {
+        font-size: 4rem;
+        width: 5rem;
+    }
+    .home-popular-info .title {
+        font-size: 1.1rem;
+    }
+    .home-popular-info .episode {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 600px) {
     .home-popular-ranking {
         font-size: 5rem;
         width: 6rem;
@@ -123,7 +149,7 @@
 @media (min-width: 1600px) {
     .home-popular-ranking {
         font-size: 4rem;
-        width: 4rem;
+        width: 4.5rem;
     }
     .home-popular-info .title {
         font-size: 0.9rem;

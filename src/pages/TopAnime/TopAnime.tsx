@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import TopAnimeResult from "../../components/TopAnimeResult/TopAnimeResult";
+import PageButton from "../../components/PageButton/PageButton";
 import "./TopAnime.css";
 import { useState } from "react";
 
@@ -75,13 +76,17 @@ function TopAnime() {
                 <h1 className="page-title">Top Anime</h1>
                 <div className="filter-buttons-container">
                     <button
-                        className={`filter-button ${filter === "" ? "selected" : ""}`}
+                        className={`filter-button ${
+                            filter === "" ? "selected" : ""
+                        }`}
                         onClick={() => handleFilterButtonClick("")}
                     >
                         Top Rated
                     </button>
                     <button
-                        className={`filter-button ${filter === "bypopularity" ? "selected" : ""}`}
+                        className={`filter-button ${
+                            filter === "bypopularity" ? "selected" : ""
+                        }`}
                         onClick={() => handleFilterButtonClick("bypopularity")}
                     >
                         Most Popular
@@ -92,18 +97,24 @@ function TopAnime() {
             <ul className="top-anime-grid">
                 {topAnimeData?.data?.map((anime: Anime, i: number) => (
                     <li key={i}>
-                        <TopAnimeResult anime={anime} filter={filter}/>
+                        <TopAnimeResult anime={anime} filter={filter} />
                     </li>
                 ))}
             </ul>
 
             {topAnimeLoading && <p>Loading Top Anime...</p>}
-            {pageNumber > 1 && !topAnimeLoading && (
-                <button onClick={handlePrevButtonClick}>Previous</button>
-            )}
-            {pageNumber < pageCount && !topAnimeLoading && (
-                <button onClick={handleNextButtonClick}>Next</button>
-            )}
+
+            <div className="page-buttons-section">
+                {pageNumber > 1 && !topAnimeLoading && (
+                    <PageButton
+                        onClick={handlePrevButtonClick}
+                        type="previous"
+                    />
+                )}
+                {pageNumber < pageCount && !topAnimeLoading && (
+                    <PageButton onClick={handleNextButtonClick} type="next" />
+                )}
+            </div>
         </div>
     );
 }

@@ -16,6 +16,12 @@ body {
 	color: white
 }
 
+@media (max-width: 500px) {
+	body {
+		padding: 6rem 1rem 4rem 1rem;
+	}
+}
+
 p {
 	margin: 0;
 	padding: 0;

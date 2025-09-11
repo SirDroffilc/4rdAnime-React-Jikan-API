@@ -34,10 +34,15 @@
 @media (max-width: 790px) {
     .recent-and-popular-container {
         flex-direction: column;
+        margin-top: 2rem;
+        gap: 1rem;
     }
     .recent-animes-grid {
-        grid-template-columns: repeat(2,  minmax(180px, max-content));
+        grid-template-columns: repeat(2,  minmax(140px, max-content));
         justify-content: space-evenly;
+    }
+    .text-category {
+        font-size: 1.2rem;
     }
 }
 

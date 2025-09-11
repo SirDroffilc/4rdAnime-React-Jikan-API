@@ -1,5 +1,3 @@
-/* TODO: (currently have same className with SearchAnime)*/
-
 .item-favorites {
     display: flex;
     justify-content: center;
@@ -18,4 +16,19 @@
 
 .search-result-item-info {
     font-weight: bold;
+}
+
+.info-name {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 1000px) {
+    .item-favorites {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .info-name {
+        font-size: 1rem;
+    }
 }

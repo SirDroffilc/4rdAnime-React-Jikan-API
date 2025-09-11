@@ -78,3 +78,19 @@
     width: 30px;
     height: auto;
 }
+
+@media (max-width: 500px) {
+    .website-name {
+        font-size: 2.5rem;
+        display: flex;
+        justify-content: center;
+        margin: 0 0 0.8rem 0;
+    }
+
+    .search-input {
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+
+    
+}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import SearchCharacterResult from "../../components/SearchCharacterResult/SearchCharacterResult";
+import PageButton from "../../components/PageButton/PageButton";
+
 import "./SearchCharacter.css";
 
 function SearchCharacter() {
@@ -31,18 +33,8 @@ function SearchCharacter() {
         setPageNumber((p) => p + 1);
     }
 
-    function renderNextButton() {
-        if (pageNumber < pageCount) {
-            return (
-                <button
-                    onClick={handleNextButtonClick}
-                    disabled={isLoading || isFetching}
-                >
-                    Next
-                </button>
-            );
-        }
-        return null;
+    function handlePrevButtonClick() {
+        setPageNumber(p => p - 1)
     }
 
     return (
@@ -66,7 +58,21 @@ function SearchCharacter() {
                 </ul>
 
                 {isLoading || isFetching ? <p>Loading...</p> : ""}
-                {searchResults.length > 0 ? renderNextButton() : ""}
+                
+                <div className="page-buttons-section">
+                    {searchResults.length > 0 && pageNumber > 1 && (
+                        <PageButton
+                            onClick={handlePrevButtonClick}
+                            type="previous"
+                        />
+                    )}
+                    {searchResults.length > 0 && pageCount > pageNumber && (
+                        <PageButton
+                            onClick={handleNextButtonClick}
+                            type="next"
+                        />
+                    )}
+                </div>
             </div>
         </>
     );
