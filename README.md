@@ -2,8 +2,7 @@
 
 #### Description:
 
-**4rdAnime** is an anime information website developed using React, Typescript, and the Jikan API, the unofficial open-source API for the most active anime and manga community - MyAnimeList.
-
+[4rdAnime](https://4rdanime.vercel.app/) is an anime information website developed using React, Typescript, and the Jikan API, the unofficial open-source API for the most active anime and manga community - MyAnimeList.
 ## Features
 
 ### 1. Home 
