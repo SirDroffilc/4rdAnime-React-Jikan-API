@@ -1,15 +1,16 @@
-import "./Carousel.css"
+import "./Carousel.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-    interface Anime {
-        mal_id: number;
-        title?: string;
-        alt?: string;
-        src: string;
-        synopsis?: string | null;
-    }
+interface Anime {
+    mal_id: number;
+    title?: string;
+    alt?: string;
+    src: string;
+    synopsis?: string | null;
+}
 
-function Carousel({ animes, loading }: { animes: Anime[], loading: boolean }) {
+function Carousel({ animes, loading }: { animes: Anime[]; loading: boolean }) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     function nextSlide() {
@@ -17,9 +18,7 @@ function Carousel({ animes, loading }: { animes: Anime[], loading: boolean }) {
     }
 
     function prevSlide() {
-        setCurrentIndex(
-            (currentIndex - 1 + animes.length) % animes.length
-        );
+        setCurrentIndex((currentIndex - 1 + animes.length) % animes.length);
     }
 
     return (
@@ -34,7 +33,10 @@ function Carousel({ animes, loading }: { animes: Anime[], loading: boolean }) {
                             <img src={anime.src} alt={anime.alt} />
                             <div className="info">
                                 <div className="text">
-                                    <h2>{anime.alt}</h2>
+                                    <Link to={`/anime/${anime.mal_id}`}>
+                                        <h2>{anime.alt}</h2>
+                                    </Link>
+
                                     {loading && <p>Loading synopsis...</p>}
                                     <p>{anime.synopsis}</p>
                                 </div>
@@ -53,7 +55,7 @@ function Carousel({ animes, loading }: { animes: Anime[], loading: boolean }) {
                 </button>
             </div>
         </div>
-    )
+    );
 }
 
-export default Carousel
+export default Carousel;

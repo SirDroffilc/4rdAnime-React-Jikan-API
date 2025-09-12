@@ -1,5 +1,6 @@
 import "./Home.css";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 import Carousel from "../../components/Carousel/Carousel";
 import SearchAnimeResult from "../../components/SearchAnimeResult/SearchAnimeResult";
@@ -120,9 +121,11 @@ function Home() {
                     </p>
                     <ul className="recent-animes-grid">
                         {recentData?.data?.map((anime: any, i: number) => (
-                            <li key={i}>
-                                <SearchAnimeResult anime={anime} className="small-card"/>
-                            </li>
+                            <Link to={`/anime/${anime.mal_id}`}>
+                                <li key={i}>
+                                    <SearchAnimeResult anime={anime} className="small-card"/>
+                                </li>
+                            </Link>
                         ))}
                     </ul>
                     {recentLoading && (
@@ -134,11 +137,14 @@ function Home() {
                     <p className="text-category">Most Popular</p>
                     <ul className="home-popular-animes-list">
                         {popularData?.data?.map((anime: any, i: number) => (
-                            <li key={i}>
-                                <HomePopularAnime
-                                    anime={anime}
-                                ></HomePopularAnime>
-                            </li>
+                            <Link to={`/anime/${anime.mal_id}`}>
+                                <li key={i}>
+                                    <HomePopularAnime
+                                        anime={anime}
+                                    ></HomePopularAnime>
+                                </li>       
+                            </Link>
+                            
                         ))}
                     </ul>
                     {popularLoading && (

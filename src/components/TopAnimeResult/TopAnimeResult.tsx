@@ -1,5 +1,5 @@
 import "./TopAnimeResult.css";
-
+import { Link } from "react-router-dom";
 interface Genre {
     mal_id: number;
     name: string;
@@ -52,7 +52,9 @@ function TopAnimeResult({ anime, filter }: { anime: Anime; filter: string }) {
     return (
         <div className="top-anime-result-container">
             <div className="top-anime-result-title-section">
-                <h1 id="top-anime-title">{anime.title}</h1>
+                <Link to={`/anime/${anime.mal_id}`}>
+                    <h1 id="top-anime-title">{anime.title}</h1>
+                </Link>
                 <h1 id="top-anime-rank">
                     #{filter === "bypopularity" ? anime.popularity : anime.rank}
                 </h1>

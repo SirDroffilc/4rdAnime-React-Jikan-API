@@ -12,6 +12,12 @@
     border: none;
 
     box-sizing: border-box;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.home-popular-container:hover{
+    opacity: 0.5;
 }
 
 .home-popular-ranking {
@@ -35,6 +41,7 @@
     flex-direction: column;
     justify-content: center; 
     overflow: hidden; 
+    
 }
 
 .home-popular-info .title {
@@ -44,7 +51,8 @@
 
     white-space: nowrap;       
     overflow: hidden;          
-    text-overflow: ellipsis;   
+    text-overflow: ellipsis; 
+    color: white;  
 }
 
 .home-popular-info .episode {

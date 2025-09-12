@@ -52,6 +52,8 @@
     margin: 0 0 10px 0;
     font-weight: bold;
     font-size: 2.5rem; /* scale better */
+    color: white;
+    text-decoration: none;
 }
 
 .slide .info p {
