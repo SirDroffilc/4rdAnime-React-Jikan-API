@@ -66,7 +66,7 @@ async function fetchCarouselAnimes() {
 
             await new Promise((resolve) => setTimeout(resolve, 500));
         } catch {
-            updatedList.push({ ...anime, synopsis: "Error fetching synopsis" });
+            updatedList.push({ ...anime, synopsis: "" });
         }
     }
     return updatedList;
