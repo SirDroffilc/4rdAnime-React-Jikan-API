@@ -253,16 +253,18 @@ function AnimeInfo() {
                 <div className="details-right-container">
                     <div className="details-right-stats-section">
                         <ScoreStars score={anime.score} />
-                        <GradientCircleRank
-                            category="Rank"
-                            rank={anime.rank}
-                            gradientDeg={180}
-                        />
-                        <GradientCircleRank
-                            category="Popularity"
-                            rank={anime.popularity}
-                            gradientDeg={0}
-                        />
+                        <div className="stats-circle-ranks">
+                            <GradientCircleRank
+                                category="Rank"
+                                rank={anime.rank}
+                                gradientDeg={180}
+                            />
+                            <GradientCircleRank
+                                category="Popularity"
+                                rank={anime.popularity}
+                                gradientDeg={0}
+                            />
+                        </div>
                     </div>
                     <div className="details-right-trailer-theme-section">
                         <div className="right-trailer-side">

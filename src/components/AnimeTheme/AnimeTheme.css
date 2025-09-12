@@ -24,6 +24,67 @@
     font-size: 1.2rem;
 }
 
+@media (max-width: 400px) {
+    .theme-icon-wrapper {
+        padding: .8rem;
+    }
+
+    .theme-music-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-title {
+        font-size: .8rem;
+    }
+}
+
+/* LAYOUT CHANGE TO ONE THEME PER ROW */
+@media (min-width: 401px) and (max-width: 600px) {
+    .theme-icon-wrapper {
+        padding: 1rem;
+    }
+
+    .theme-music-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .theme-title {
+        font-size: .9rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 700px) {
+    .theme-icon-wrapper {
+        padding: .5rem;
+    }
+
+    .theme-music-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-title {
+        font-size: .6rem;
+    }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+    .theme-icon-wrapper {
+        padding: .5rem;
+    }
+
+    .theme-music-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-title {
+        font-size: .7rem;
+    }
+}
+
 @media (min-width: 901px) and (max-width: 1100px) {
     .theme-icon-wrapper {
         padding: .8rem;
